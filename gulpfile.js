@@ -1,54 +1,36 @@
-const { src, dest, watch, series, parallel } = require('gulp');
-
-const sourcemaps = require('gulp-sourcemaps');
+const gulp = require('gulp');
 const sass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-var replace = require('gulp-replace');
-
-// File paths
-const files = { 
-    scssPath: 'src/scss/**/*.scss',
-    jsPath: 'src/js/**/*.js'
-};
-
-function scssTask(){    
-    return src(files.scssPath)
-        .pipe(sourcemaps.init()) // initialize sourcemaps first
-        .pipe(sass([])) // compile SCSS to CSS
-        .pipe(postcss([ autoprefixer(), cssnano() ])) // PostCSS plugins
-        .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
-        .pipe(dest('dist')
-    ); // put final CSS in dist folder
-}
 
 function jsTask(){
-    return src([
-        files.jsPath
-        ])
+    return gulp.src(['src/js/**/*.js'])
         .pipe(concat('all.js'))
         .pipe(uglify())
-        .pipe(dest('dist')
+        .pipe(gulp.dest('dist')
     );
 }
 
-var cbString = new Date().getTime();
-function cacheBustTask(){
-    return src(['index.html'])
-        .pipe(replace(/cb=\d+/g, 'cb=' + cbString))
-        .pipe(dest('.'));
+function style() {
+    return gulp.src('./src/scss/**/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('./dist'))
+    .pipe(browserSync.stream());
 }
 
-function watchTask(){
-    watch([files.scssPath, files.jsPath], 
-        parallel(scssTask, jsTask));    
+function watch() {
+    browserSync.init({
+        server: {
+            baseDir: './'
+        }
+    });
+gulp.watch('./src/scss/**/*.scss', style);
+gulp.watch('src/js/**/*.js', jsTask)
+gulp.watch('./*.html').on('change', browserSync.reload);
+gulp.watch('./js/**/*.js').on('change', browserSync.reload);
 }
 
-exports.default = series(
-    parallel(scssTask, jsTask), 
-    cacheBustTask,
-    watchTask
-);
+exports.style = style;
+exports.watch = watch;
+exports.jsTask = jsTask;
