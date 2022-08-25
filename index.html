@@ -1,11 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>[Name] [Surname] - Recruitment task</title>
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/main.css" />
+    <title>[Wojciech] [Szczygielski] - Recruitment task</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a class="navbar__logo" href="/"
+          ><img src="./images/gravity-global.png"
+        /></a>
+        <div class="navbar__toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a class="navbar__link" href="#">News</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#">About</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#">Awards</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#">Careers</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="main">
+      <article class="article">
+        <div class="article__pic">
+          <img
+            src="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_480.jpg"
+            alt="image-beach"
+          />
+        </div>
+        <section class="article__section">
+          <header class="header">
+            <h1 class="header__title">Lorem Ipsum</h1>
+          </header>
+          <p class="article__description">
+            Infinitely scalable, feature-rich and cloud-native data management
+            and protection for modern and legacy infrastructures and SaaS
+            platforms, managed via a single app with no hardware required.
+          </p>
+          <button class="article__btn" data-modal-target="#popup">
+            Button
+          </button>
+        </section>
+      </article>
+      <article class="article">
+        <div class="article__pic">
+          <img
+            src="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_480.jpg"
+            alt="image-beach"
+          />
+        </div>
+        <section class="article__section">
+          <header class="header">
+            <h1 class="header__title">Lorem Ipsum 2</h1>
+          </header>
+          <p class="article__description">
+            Infinitely scalable, feature-rich and cloud-native data management
+            and protection for modern and legacy infrastructures and SaaS
+            platforms, managed via a single app with no hardware required.
+          </p>
+          <button class="article__btn" data-modal-target="#popup">
+            Button
+          </button>
+        </section>
+      </article>
+      <article class="article">
+        <div class="article__pic">
+          <img
+            src="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_480.jpg"
+            alt="image-beach"
+          />
+        </div>
+        <section class="article__section">
+          <header class="header">
+            <h1 class="header__title">Lorem Ipsum 3</h1>
+          </header>
+          <p class="article__description">
+            Infinitely scalable, feature-rich and cloud-native data management
+            and protection for modern and legacy infrastructures and SaaS
+            platforms, managed via a single app with no hardware required.
+          </p>
+          <button class="article__btn" data-modal-target="#popup">
+            Button
+          </button>
+        </section>
+      </article>
+    </main>
 
-</body>
+    <footer class="footer">
+      <p class="footer__description">
+        Recruitment task for Gravity Global ©2022
+      </p>
+    </footer>
+
+    <div class="popup" id="popup">
+      <div class="popup__content">
+        <button class="popup__reset">reset the counter</button>
+        <p class="popup__info">You reset the counter ✅</p>
+        <h1>Alert!</h1>
+        <p class="popup__description">
+          You have clicked <span id="counter"></span> to related button.
+        </p>
+      </div>
+      <div class="popup__close-btn" data-close-button>&times;</div>
+    </div>
+
+    <div id="overlay"></div>
+    <script src="./dist/all.js"></script>
+  </body>
+</html>
