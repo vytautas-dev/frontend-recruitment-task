@@ -1,0 +1,147 @@
+.popup {
+  @include flex(row, space-between, center);
+  font-family: $font-family;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  z-index: 10;
+  background-color: $light-color;
+  width: 80vw;
+  height: 20vh;
+  max-width: 80%;
+  z-index: 1001;
+
+  &__info {
+    width: 100%;
+    color: $light-color;
+    text-align: center;
+    opacity: 0;
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+    &.active {
+      opacity: 1;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  &__reset {
+    opacity: 0;
+    position: absolute;
+    background-color: red;
+    color: $light-color;
+    border-radius: 50px;
+    line-height: 1.3;
+    height: 50px;
+    width: 200px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    top: -1000px;
+    left: 50%;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.active {
+      opacity: 1;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__content {
+    @include flex(column, flex-start, flex-start);
+    margin-left: 10%;
+    gap: 20px;
+
+    & h1 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    & p {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 300;
+
+      & span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__close-btn {
+    width: 20px;
+    height: 60%;
+    margin-right: 40px;
+    color: $dark-color;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+#overlay {
+  position: fixed;
+  z-index: 1000;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+//media queries smartphones 0-480px
+
+@media screen and (max-width: $smartphones) {
+  .popup {
+    height: 15vh;
+    &__content {
+      gap: 10px;
+
+      & h1 {
+        font-size: 30px;
+      }
+
+      & p {
+        font-size: 12px;
+        line-height: 24px;
+        font-weight: 300;
+
+        & span {
+          font-weight: 600;
+        }
+      }
+    }
+
+    &__close-btn {
+      margin-right: 20px;
+    }
+
+    &__reset {
+      height: 35px;
+      width: 150px;
+      font-size: 12px;
+    }
+  }
+}
