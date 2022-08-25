@@ -1,0 +1,7 @@
+@import 'variables', 'reset', 'navbar', 'article', 'footer', 'popup';
+
+* {
+  box-sizing: border-box;
+  font-family: $font-family;
+  scroll-behavior: smooth;
+}
