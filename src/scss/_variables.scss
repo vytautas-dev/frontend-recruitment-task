@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+//variables
+$font-family: 'Roboto', sans-serif;
+$dark-color: #121212;
+$light-color: #ffffff;
+$button-color: #e4c1ae;
+$link-hover-color: #9518fc;
+
+//media queries breakpoints
+$laptops: 1280px;
+$tablets: 768px;
+$smartphones: 480px;
+
+//mixins
+@mixin container-padding-laptop {
+  padding: 0 50px 0 50px;
+}
+
+@mixin container-padding-smartphone {
+  padding: 0 25px 0 25px;
+}
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
