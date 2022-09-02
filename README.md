@@ -60,3 +60,5 @@ plik o rozszerzeniu css. **Tutaj warto dodać, że milej widziane są style pisa
 - Poprawność semantyczna HTML
 - WCAG
 - Logikę rozwiązań funkcjonalnych
+
+https://gravity-global-recruitment-task.netlify.app/#
